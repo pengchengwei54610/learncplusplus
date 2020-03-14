@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "查询成绩", "查询成�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{86144CE7-B129-41B7-A0B1-8F9BF2565FE0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "图形时钟", "图形时钟\图形时钟.vcxproj", "{1E81C494-7602-46A2-A327-3F95D40136DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{86144CE7-B129-41B7-A0B1-8F9BF2565FE0}.Release|x64.Build.0 = Release|x64
 		{86144CE7-B129-41B7-A0B1-8F9BF2565FE0}.Release|x86.ActiveCfg = Release|Win32
 		{86144CE7-B129-41B7-A0B1-8F9BF2565FE0}.Release|x86.Build.0 = Release|Win32
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Debug|x64.ActiveCfg = Debug|x64
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Debug|x64.Build.0 = Debug|x64
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Debug|x86.Build.0 = Debug|Win32
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Release|x64.ActiveCfg = Release|x64
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Release|x64.Build.0 = Release|x64
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Release|x86.ActiveCfg = Release|Win32
+		{1E81C494-7602-46A2-A327-3F95D40136DD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
