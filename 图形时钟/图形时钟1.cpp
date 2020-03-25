@@ -4,6 +4,8 @@
 #include <math.h>
 #include <conio.h>
 #include <time.h>
+#include<windows.h>
+#pragma comment(lib,"winmm.lib")
 /*ÑÕÉ«³£Á¿
 BLACK			0			ºÚ
 BLUE			0xAA0000	À¶
@@ -140,6 +142,7 @@ void draw_clock(tm time1)
 }
 int main()
 {
+	PlaySound(TEXT("1.wav"), NULL, SND_FILENAME | SND_ASYNC);
 	struct tm t;
 	int flag1 = 0;
 	time_t now;
