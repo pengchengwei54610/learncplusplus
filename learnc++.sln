@@ -29,6 +29,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "成绩管理-添加记录",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "学生成绩管理系统", "学生成绩管理系统\学生成绩管理系统.vcxproj", "{195C4B78-F1EF-4001-8255-A254B15532D5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "成绩管理-带表头结点-删除记录", "成绩管理-带表头结点-删除记录\成绩管理-带表头结点-删除记录.vcxproj", "{7A784B8E-1B0F-409E-AECA-7B54486014E1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "成绩管理-带表头结点-添加记录", "成绩管理-带表头结点-添加记录\成绩管理-带表头结点-添加记录.vcxproj", "{5622EC40-05BE-49AC-9519-D6D973A8B57A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "格式输出-流成员函数", "格式输出-流成员函数\格式输出-流成员函数.vcxproj", "{B4755978-D99B-40B4-B8C9-8D3F79B7C443}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +147,30 @@ Global
 		{195C4B78-F1EF-4001-8255-A254B15532D5}.Release|x64.Build.0 = Release|x64
 		{195C4B78-F1EF-4001-8255-A254B15532D5}.Release|x86.ActiveCfg = Release|Win32
 		{195C4B78-F1EF-4001-8255-A254B15532D5}.Release|x86.Build.0 = Release|Win32
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Debug|x64.ActiveCfg = Debug|x64
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Debug|x64.Build.0 = Debug|x64
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Debug|x86.Build.0 = Debug|Win32
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Release|x64.ActiveCfg = Release|x64
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Release|x64.Build.0 = Release|x64
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Release|x86.ActiveCfg = Release|Win32
+		{7A784B8E-1B0F-409E-AECA-7B54486014E1}.Release|x86.Build.0 = Release|Win32
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Debug|x64.ActiveCfg = Debug|x64
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Debug|x64.Build.0 = Debug|x64
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Debug|x86.ActiveCfg = Debug|Win32
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Debug|x86.Build.0 = Debug|Win32
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Release|x64.ActiveCfg = Release|x64
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Release|x64.Build.0 = Release|x64
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Release|x86.ActiveCfg = Release|Win32
+		{5622EC40-05BE-49AC-9519-D6D973A8B57A}.Release|x86.Build.0 = Release|Win32
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Debug|x64.ActiveCfg = Debug|x64
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Debug|x64.Build.0 = Debug|x64
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Debug|x86.ActiveCfg = Debug|Win32
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Debug|x86.Build.0 = Debug|Win32
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Release|x64.ActiveCfg = Release|x64
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Release|x64.Build.0 = Release|x64
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Release|x86.ActiveCfg = Release|Win32
+		{B4755978-D99B-40B4-B8C9-8D3F79B7C443}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
