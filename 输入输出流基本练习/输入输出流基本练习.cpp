@@ -2,8 +2,7 @@
 using namespace std;
 istream& f(istream& in)
 {
-	int flagbits;
-	flagbits = in.rdstate();
+	auto flagbits = in.rdstate();
 	/* ¸´¶ÁÕûÊý£¬²¢¾Ü¾ø´íÎóÊäÈë */
 	int temp;
 	while (((in >> temp, in.eof()) != 1 && temp != -1))
