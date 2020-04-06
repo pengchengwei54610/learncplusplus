@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /test
+/文件基本操作/1.out
+/读写同一个文件/foo.bar
