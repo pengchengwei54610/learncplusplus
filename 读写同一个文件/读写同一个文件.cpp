@@ -27,6 +27,11 @@ int main()
 	file1.close();
 	ofstream file2;
 	file2.open("foo.bar", ios::out | ios::app);
+	if (!file2.is_open())
+	{
+		cout << "打开文件失败" << endl;
+		return 0;
+	}
 	data1[0] = count1;
 	file2 << endl;
 	while (count3 < count1 + 2)
