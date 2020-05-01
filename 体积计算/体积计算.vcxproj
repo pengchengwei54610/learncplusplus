@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{BB449F23-BB98-4A49-9ABA-61968969B624}</ProjectGuid>
-    <RootNamespace>时间显示1</RootNamespace>
+    <ProjectGuid>{2D4E25DA-23A4-4749-BB27-DD5D81406B04}</ProjectGuid>
+    <RootNamespace>体积计算</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,7 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="时间显示1.cpp" />
+    <ClCompile Include="体积计算.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

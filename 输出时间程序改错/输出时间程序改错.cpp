@@ -42,6 +42,8 @@ void Time::set_time(void)
 	cin >> t.hour;
 	cin >> t.minute;
 	cin >> t.sec;
+
+
 }
 
 //错误5：外部定义成员函数需要给出类的作用域限定符,且返回类型不匹配
@@ -53,4 +55,7 @@ void Time::show_time(void)
 	cout << "你输入的时间是";
 
 	cout << t.hour << ":" << t.minute << ":" << t.sec << endl;
+
+	//增加3：退出提示
+	cout << "程序退出" << endl;
 }
