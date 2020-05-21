@@ -6,110 +6,110 @@ using namespace std;
 class TString
 {
 private:
-    char* content;        //Ö¸Ïò×Ö·û´®µÄÖ¸Õë
-    int   len;            //×Ö·û´®µÄ³¤¶È£¬²»º¬Î²Áã
+	char* content;        //Ö¸Ïò×Ö·û´®µÄÖ¸Õë
+	int   len;            //×Ö·û´®µÄ³¤¶È£¬²»º¬Î²Áã
 public:
-    TString(char* s = NULL);
-    TString(const TString&);
-    ~TString();
-    char* get_content();
-    void set(char* s = NULL);
-    void set(const TString&);
-    int length();
+	TString(char* s = NULL);
+	TString(const TString&);
+	~TString();
+	char* get_content();
+	void set(char* s = NULL);
+	void set(const TString&);
+	int length();
 };
 TString::~TString()
 {
-    if(content!=NULL)
-        delete content;//ÊÍ·ÅÄÚ´æ
+	if (content != NULL)
+		delete content;//ÊÍ·ÅÄÚ´æ
 }
-TString::TString(char*s)
-{   
+TString::TString(char* s)
+{
 
-    if (s != NULL)
-    {
-        content = new(nothrow)char[max_length];
-        if (content == 0)
-        {
-            cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
-            exit(-1);
-        }
-        strcpy(content, s);
-        len = strlen(s);
-    }
-    else
-    {
-        content = NULL;
-        len = 0;
-    }
+	if (s != NULL)
+	{
+		content = new(nothrow)char[max_length];
+		if (content == 0)
+		{
+			cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
+			exit(-1);
+		}
+		strcpy(content, s);
+		len = int(strlen(s));
+	}
+	else
+	{
+		content = NULL;
+		len = 0;
+	}
 }
 TString::TString(const TString& a)
 {
-    if (a.content != NULL)
-    {      
-        content = new(nothrow)char[max_length];
-        if (content == 0)
-        {
-            cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
-            exit(-1);
-        }
-        strcpy(content, a.content);
-        len = strlen(content);
-    }
-    else
-    {
-        content = NULL;
-        len = 0;
-    }
+	if (a.content != NULL)
+	{
+		content = new(nothrow)char[max_length];
+		if (content == 0)
+		{
+			cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
+			exit(-1);
+		}
+		strcpy(content, a.content);
+		len = int(strlen(content));
+	}
+	else
+	{
+		content = NULL;
+		len = 0;
+	}
 }
 char* TString::get_content()
 {
-    return content;
+	return content;
 }
 void TString::set(char* s)
 {
-    if (s != NULL)
-    {
-        if (content == NULL)
-        {
-            content = new(nothrow)char[max_length];
-            if (content == 0)
-            {
-                cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
-                exit(-1);
-            }
-        }
-        strcpy(content, s);
-        len = strlen(s);
-    }
-    else
-    {
-        content = NULL;
-        len = 0;
-    }
+	if (s != NULL)
+	{
+		if (content == NULL)
+		{
+			content = new(nothrow)char[max_length];
+			if (content == 0)
+			{
+				cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
+				exit(-1);
+			}
+		}
+		strcpy(content, s);
+		len = int(strlen(s));
+	}
+	else
+	{
+		content = NULL;
+		len = 0;
+	}
 }
 void TString::set(const TString& a)
 {
-    if (a.content != NULL)
-    {
-        if (content == NULL)
-        {
-            content = new(nothrow)char[max_length];
-            if (content == 0)
-            {
-                cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
-                exit(-1);
-            }
-        }
-        strcpy(content, a.content);
-        len = strlen(a.content);
-    }
-    else
-    {
-        content = NULL;
-        len = 0;
-    }
+	if (a.content != NULL)
+	{
+		if (content == NULL)
+		{
+			content = new(nothrow)char[max_length];
+			if (content == 0)
+			{
+				cerr << "ÄÚ´æÉêÇëÊ§°Ü" << endl;
+				exit(-1);
+			}
+		}
+		strcpy(content, a.content);
+		len = int(strlen(a.content));
+	}
+	else
+	{
+		content = NULL;
+		len = 0;
+	}
 }
-int TString::length() 
+int TString::length()
 {
-    return (len);
+	return (len);
 }

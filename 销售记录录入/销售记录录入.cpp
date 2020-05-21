@@ -18,7 +18,7 @@ public:
 	/*可以接受istream&并从中读取书籍销售信息的构造函数Book_Sale (istream &)，析构函数以及其他必要的成员函数*/
 	Book_Sale(istream&);
 	~Book_Sale();
-	void set(int isbn_4, int sold, double price, double discount);
+	void set(char* isbn_4, int sold, double price, double discount);
 	void show();
 	int flag = 0;//标志位标识是否已被初始化
 };
@@ -30,9 +30,9 @@ Book_Sale::Book_Sale(istream& temp)
 		cerr << "内存申请失败";
 		exit(-1);
 	}
-	int a;
+	char a[6];
 	temp >> a;
-	if (a == -1)
+	if (a[0] == '-' && a[1] == '1')
 	{
 		sold = 0;
 		sellingprice = 0;
@@ -43,21 +43,23 @@ Book_Sale::Book_Sale(istream& temp)
 	}
 	flag = 1;
 	strcpy(isbn, "978-7-121-");
-	sprintf(isbn + 10, "%d", a);
+	strcat(isbn + 10, a);
 	isbn[15] = '-';
-	a = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
-	if (a == 10)
-		a = 0;
-	isbn[16] = '0' + a;
+	int k1;
+	k1 = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
+	if (k1 == 10)
+		k1 = 0;
+	isbn[16] = '0' + k1;
 	isbn[17] = 0;
 	temp >> sold >> sellingprice >> discount;
 	saleprice = sellingprice * discount;
 	total = saleprice * sold;
 }
-void Book_Sale::set(int isbn_41, int sold1, double price, double discount1)
+void Book_Sale::set(char* isbn_41, int sold1, double price, double discount1)
 {
 	int a;
-	sprintf(isbn + 10, "%d", isbn_41);
+	isbn[10] = 0;
+	strcat(isbn + 10, isbn_41);
 	isbn[15] = '-';
 	a = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
 	if (a == 10)
@@ -81,13 +83,13 @@ void Book_Sale::show()
 	{
 		cout << setiosflags(ios::fixed);
 		cout << "该书的ISBN号为：" << isbn << endl;
-		cout << "销量为：" << setprecision(0) << sold << " 原价为：" << setprecision(4) << sellingprice << "元 折扣为：" << discount << " 现价为：" << saleprice << "元 总销售额为：" << total << "元" << endl;
+		cout << "销量为：" << setprecision(0) << sold << " 原价为：" << setprecision(10) << sellingprice << "元 折扣为：" << discount << " 现价为：" << saleprice << "元 总销售额为：" << total << "元" << endl;
 	}
 }
 int main()
 {
 	istream& temp(cin);
-	int isbn_4;
+	char isbn_4[6];
 	int sold;
 	double price;
 	double discount;
@@ -104,7 +106,7 @@ int main()
 		while (1)
 		{
 			cin >> isbn_4;
-			if (isbn_4 == -1)
+			if (isbn_4[0] == '-' && isbn_4[1] == '1')
 				break;
 			else
 			{
