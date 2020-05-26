@@ -16,7 +16,9 @@ inline void wait_for_press()
 *        请补全该区域的代码，并只提交在这个区域的代码。
 *
 ***********************************************/
-
+#include <cstring>
+#define isbn_length 17
+#include<iomanip>
 class Book_Sale
 {
 private:
@@ -32,7 +34,7 @@ public:
 	/*可以接受istream&并从中读取书籍销售信息的构造函数Book_Sale (istream &)，析构函数以及其他必要的成员函数*/
 	Book_Sale(int isbn1 = 0, int sold1 = 0, double sellingprice1 = 0, double discount1 = 0)
 	{
-		isbn = new(nothrow)char[18];
+		isbn = new(nothrow)char[isbn_length + 1];
 		if (isbn == NULL)
 		{
 			cerr << "内存申请失败";
@@ -45,7 +47,7 @@ public:
 		discount = discount1;
 		total = saleprice * sold;
 		strcpy(isbn, "978-7-121-");
-		sprintf(isbn + 10, "%d", isbn1);
+		sprintf(isbn + 10, "%05d", isbn1);
 		isbn[15] = '-';
 		int k1;
 		k1 = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
@@ -54,42 +56,143 @@ public:
 		isbn[16] = '0' + k1;
 		isbn[17] = 0;
 	};
+	Book_Sale(const Book_Sale& temp)
+	{
+		isbn = new(nothrow)char[isbn_length + 1];
+		if (isbn == NULL)
+		{
+			cerr << "内存申请失败";
+			exit(0);
+		}
+		strcpy(isbn, temp.isbn);
+		sold = temp.sold;
+		sellingprice = temp.sellingprice;
+		saleprice = temp.saleprice;
+		discount = temp.discount;
+		total = temp.total;
+	}
 	~Book_Sale();
-	void set(char* isbn_4, int sold, double price, double discount);
+	void set(int isbn_4, int sold, double price, double discount);
 	void display();
+	Book_Sale& operator =(const Book_Sale temp)
+	{
+		isbn = new(nothrow)char[isbn_length + 1];
+		if (isbn == NULL)
+		{
+			cerr << "内存申请失败";
+			exit(0);
+		}
+		strcpy(isbn, temp.isbn);
+		sold = temp.sold;
+		sellingprice = temp.sellingprice;
+		saleprice = temp.saleprice;
+		discount = temp.discount;
+		total = temp.total;
+		return *this;
+	};
+	friend istream& operator>>(istream& in, Book_Sale& a);
+	Book_Sale& operator+=(int sale_inc);
+	Book_Sale& operator-=(int sale_dec);
+	bool operator>(const Book_Sale a);
+	bool operator>=(const Book_Sale a);
+	bool operator==(const Book_Sale a);
+	bool operator<(const Book_Sale a);
+	bool operator<=(const Book_Sale a);
+	bool operator!=(const Book_Sale a);
 };
-void Book_Sale::set(char* isbn_41, int sold1, double price, double discount1)
+void Book_Sale::set(int isbn_41, int sold1, double price1, double discount1 = 1)
 {
 	int a;
-	isbn[10] = 0;
-	strcat(isbn + 10, isbn_41);
-	isbn[15] = '-';
-	a = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
-	if (a == 10)
-		a = 0;
-	isbn[16] = '0' + a;
-	isbn[17] = 0;
-	sold = sold1;
-	sellingprice = price;
-	discount = discount1;
+	if (isbn_41 != -1)
+	{
+		isbn[10] = 0;
+		sprintf(isbn + 10, "%05d", isbn_41);
+		isbn[15] = '-';
+		a = (10 - ((isbn[0] - '0') + 3 * (isbn[1] - '0') + (isbn[2] - '0') + 3 * (isbn[4] - '0') + (isbn[6] - '0') + 3 * (isbn[7] - '0') + (isbn[8] - '0') + 3 * (isbn[10] - '0') + (isbn[11] - '0') + 3 * (isbn[12] - '0') + (isbn[13] - '0') + 3 * (isbn[14] - '0')) % 10);
+		if (a == 10)
+			a = 0;
+		isbn[16] = '0' + a;
+		isbn[17] = 0;
+	}
+	if (sold1 != -1)
+	{
+		sold = sold1;
+	}
+	if (price1 != -1)
+	{
+		sellingprice = price1;
+	}
+	if (discount1 != -1)
+	{
+		discount = discount1;
+	}
 	saleprice = sellingprice * discount;
 	total = saleprice * sold;
+	return;
 }
 Book_Sale::~Book_Sale()
 {
 	delete isbn;
 }
-
-void Book_Sale::show()
+void Book_Sale::display()
 {
-	if (flag == 1)
-	{
-		cout << setiosflags(ios::fixed);
-		cout << "该书的ISBN号为：" << isbn << endl;
-		cout << "销量为：" << setprecision(0) << sold << " 原价为：" << setprecision(10) << sellingprice << "元 折扣为：" << discount << " 现价为：" << saleprice << "元 总销售额为：" << total << "元" << endl;
-	}
+	cout << setiosflags(ios::fixed);
+	cout << "该书的ISBN号为：" << isbn << ",销量为：" << setprecision(0) << sold << "本，原价为：" << setprecision(10) << sellingprice << "元，折扣为：" << discount << "，现价为：" << saleprice << "元，总销售额为：" << total << "元" << endl;
 }
-
+istream& operator>>(istream& in, Book_Sale& a)
+{
+	int k;
+	int isbn_41;
+	in >> isbn_41;
+	a.isbn[10] = 0;
+	sprintf((a.isbn + 10), "%05d", isbn_41);
+	a.isbn[15] = '-';
+	k = (10 - ((a.isbn[0] - '0') + 3 * (a.isbn[1] - '0') + (a.isbn[2] - '0') + 3 * (a.isbn[4] - '0') + (a.isbn[6] - '0') + 3 * (a.isbn[7] - '0') + (a.isbn[8] - '0') + 3 * (a.isbn[10] - '0') + (a.isbn[11] - '0') + 3 * (a.isbn[12] - '0') + (a.isbn[13] - '0') + 3 * (a.isbn[14] - '0')) % 10);
+	if (k == 10)
+		k = 0;
+	a.isbn[16] = '0' + k;
+	a.isbn[17] = 0;
+	in >> a.sold >> a.sellingprice >> a.discount;
+	a.saleprice = a.sellingprice * a.discount;
+	a.total = a.saleprice * a.sold;
+	return in;
+}
+Book_Sale& Book_Sale::operator+=(int sale_inc)
+{
+	sold += sale_inc;
+	total = sold * saleprice;
+	return *this;
+}
+Book_Sale& Book_Sale::operator-=(int sale_inc)
+{
+	sold -= sale_inc;
+	total = sold * saleprice;
+	return *this;
+}
+bool Book_Sale::operator>(const Book_Sale a)
+{
+	return total > a.total;
+};
+bool Book_Sale::operator>=(const Book_Sale a)
+{
+	return total >= a.total;
+};
+bool Book_Sale::operator==(const Book_Sale a)
+{
+	return total == a.total;
+};
+bool Book_Sale::operator<(const Book_Sale a)
+{
+	return total < a.total;
+};
+bool Book_Sale::operator<=(const Book_Sale a)
+{
+	return total <= a.total;
+};
+bool Book_Sale::operator!=(const Book_Sale a)
+{
+	return total != a.total;
+};
 /**********************************************
 *
 *    TO-DO END
