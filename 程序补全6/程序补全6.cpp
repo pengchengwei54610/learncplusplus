@@ -18,6 +18,7 @@ public:
 };
 Teacher::Teacher(int num1 = 0, char* name1 = NULL, char sex1 = 'm')
 {
+	num = num1;
 	name = new(nothrow)char[name_max_length];
 	if (name == NULL)
 	{
@@ -53,9 +54,16 @@ private:
 	int month;
 	int day;
 public:
+	BirthDate(int year1, int month1, int day1);
 	void set_birthday();
 	void show_birthday();
 };
+BirthDate::BirthDate(int year1 = 0, int month1 = 0, int day1 = 0)
+{
+	year = year1;
+	month = month1;
+	day = day1;
+}
 void BirthDate::set_birthday()
 {
 	cout << "输入改变的日期：" << endl;
