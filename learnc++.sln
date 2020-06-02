@@ -101,6 +101,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "程序补全5", "程序补�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "程序补全6", "程序补全6\程序补全6.vcxproj", "{E96156AF-8FDF-4D09-A2A5-467A0E456AC4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "日期显示-终极版", "日期显示-终极版\日期显示-终极版.vcxproj", "{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -501,6 +503,14 @@ Global
 		{E96156AF-8FDF-4D09-A2A5-467A0E456AC4}.Release|x64.Build.0 = Release|x64
 		{E96156AF-8FDF-4D09-A2A5-467A0E456AC4}.Release|x86.ActiveCfg = Release|Win32
 		{E96156AF-8FDF-4D09-A2A5-467A0E456AC4}.Release|x86.Build.0 = Release|Win32
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Debug|x64.ActiveCfg = Debug|x64
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Debug|x64.Build.0 = Debug|x64
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Debug|x86.ActiveCfg = Debug|Win32
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Debug|x86.Build.0 = Debug|Win32
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Release|x64.ActiveCfg = Release|x64
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Release|x64.Build.0 = Release|x64
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Release|x86.ActiveCfg = Release|Win32
+		{45CAD2EA-FAF8-4AFC-8DA6-C1C7D0F0569E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
